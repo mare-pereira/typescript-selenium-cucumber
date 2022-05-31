@@ -13,7 +13,7 @@ export class LoginPage extends Page {
   }
 
   loginPageId = "root";
-  emailXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div/div[1]/div[1]/div[2]/input";
+  emailXPath = "//*[@id='root']//input[@name='email']";
   emailErrorMessageXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div/div[2]/div/div[2]";
   nextButtonXPath = "//*[@id=\"root\"]/div/div[2]/div/form/button/div/div";
   passwordXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div[2]/div/div/div/div[1]/div[1]/div[2]/input";
@@ -85,6 +85,7 @@ export class LoginPage extends Page {
     var message = driver.findElement(By.xpath(this.emailErrorMessageXPath));
     try {
       return message.isDisplayed();
+      //return true;
     } catch (ex) {
       return false;
     }

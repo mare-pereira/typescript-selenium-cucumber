@@ -15,7 +15,7 @@ export class LoginRegisteredUser {
 
   @when(/the user informs his credentials/)
   public whenTheUserInformsHisCredentials(): void  {
-    this.pages.login.loginWithValidCredentials;
+    this.pages.login.loginWithValidCredentials();
   }
 
   @when(/the user informs his unregistered e-mail/)
@@ -25,7 +25,7 @@ export class LoginRegisteredUser {
 
   @when(/the user informs his correct e-mail and wrong password/)
   public WhenTheUserInformsHisCorrectEmailAndWrongPassword(): void  {
-    this.pages.login.loginWithWrongPassword
+    this.pages.login.loginWithWrongPassword();
   }
 
   @when(/the user informs an invalid "([^"]*)"/)
@@ -45,13 +45,13 @@ export class LoginRegisteredUser {
 
   @then(/an error message related to the wrong credentials will be shown/)
   public thenAnErrorMessageRelatedToTheWrongCredentialsWillBeShown(): void  {
-    assert.isTrue(this.pages.login.isEmailErrorMessageShown);
-    this.pages.dispose;
+    assert.isTrue(this.pages.login.isEmailErrorMessageShown());
+    this.pages.dispose();
   }
 
   @then(/an error message related to the wrong e-mail will be shown/)
   public thenAnErrorMessageRelatedToTheWrongEmailWillBeShown(): void  {
-    assert.isTrue(this.pages.login.isEmailErrorMessageShown);
-    this.pages.dispose;
+    assert.isTrue(this.pages.login.isEmailErrorMessageShown());
+    this.pages.dispose();
   }
 }
