@@ -8,6 +8,8 @@ export class LoginPage extends Page {
   constructor(browser: Browser) {
     super(browser);
     this.setUrl(`${config.baseUrl}/`);
+    browser.driver.wait(until.elementIsVisible(browser.driver.findElement(By.id(this.loginPageId))));
+    driver = browser.driver;
   }
 
   loginPageId = "root";
@@ -18,12 +20,8 @@ export class LoginPage extends Page {
   credentialsErrorMessageXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div[2]/div/div/div/div[2]/div/div[2]";
   loginButtonXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/button";
 
-  public loadPage() {
-    driver.wait(until.elementIsVisible(driver.findElement(By.id(this.loginPageId))))
-  }
-
   public writeValidEmail(){
-    const email = driver.findElement(By.xpath(this.emailXPath))
+    const email = driver.findElement(By.xpath(this.emailXPath));
     email.click();
     email.sendKeys("mareana@gmail.com");
   }

@@ -3,7 +3,7 @@ import { Builder, WebDriver } from 'selenium-webdriver';
 
 export class Browser {
 
-  private driver: WebDriver;
+  public driver: WebDriver;
 
   public constructor(private browserName: string) {
     this.driver = new Builder().forBrowser(browserName).build();

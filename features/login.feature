@@ -1,8 +1,16 @@
-Feature: Login with registered user
+Feature: Login
+    As a grip user
+    I want to login on their website
+    In order to user their software
 
 Scenario: Login with registered user
 
     Given the user is at the login page
+    When the user informs his credentials
+    Then the home page is shown
+
+Scenario: Login with user after redifining password
+    Given the user redefined his password
     When the user informs his credentials
     Then the home page is shown
 
@@ -27,4 +35,3 @@ Scenario: Try to login with invalid e-mail
     When the user informs an invalid e-mail
     Then an error message related to the wrong e-mail will be shown
     And the user is not able to inform the password
-
