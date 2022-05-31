@@ -1,6 +1,9 @@
-# grid-project
- 
-Project structure
+# Typescript/cucumber/selenium
+Esse é um exemplo de como automatizar esses testes
+
+## Project structure
+
+```
 .
 ├──features
 ├──step-definitions
@@ -13,8 +16,9 @@ Project structure
 ├──package.json
 ├──tsconfig.json
 └── README.md
+```
 
-To run the tests follow the steps:
+## To run the tests follow the steps:
 
 1. Install npm on your machine
 2. Using the terminal go to your project folder
