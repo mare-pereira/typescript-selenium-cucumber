@@ -11,6 +11,7 @@ export class LoginRegisteredUser {
   @given(/the user is at the login page/)
   public givenTheUserIsAtTheLoginPage(): void  {
     this.pages.login.navigate();
+    this.pages.login.acceptCookies();
   }
 
   @when(/the user informs his credentials/)

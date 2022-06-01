@@ -13,12 +13,19 @@ export class LoginPage extends Page {
   }
 
   loginPageId = "root";
-  emailXPath = "//*[@id='root']//input[@name='email']";
+  acceptCookiesButtonXPath = "/html/body/div[3]/div[2]/button/div/div";
+  emailXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div/div[1]/div[1]/div[2]/input";
   emailErrorMessageXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div/div[2]/div/div[2]";
   nextButtonXPath = "//*[@id=\"root\"]/div/div[2]/div/form/button/div/div";
   passwordXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div[2]/div/div/div/div[1]/div[1]/div[2]/input";
   credentialsErrorMessageXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/div[2]/div/div/div/div[2]/div/div[2]";
   loginButtonXPath = "//*[@id=\"root\"]/div/div[2]/div/form/div/button";
+
+  public acceptCookies(){
+    const cookies = driver.findElement(By.xpath(this.acceptCookiesButtonXPath));
+    cookies.click();
+    cookies.sendKeys("mareana@gmail.com");
+  }
 
   public writeValidEmail(){
     const email = driver.findElement(By.xpath(this.emailXPath));
@@ -43,7 +50,8 @@ export class LoginPage extends Page {
     const password = driver.findElement(By.xpath(this.passwordXPath))
     password.click();
     password.sendKeys(invalidPassword);
-
+    var keys = password.getText();
+    console.log(keys);
   }
 
   public clickNext(){
@@ -57,17 +65,17 @@ export class LoginPage extends Page {
   }
 
   public loginWithValidCredentials(){
-    this.writeValidEmail;
-    this.clickNext;
-    this.writeValidPassword;
-    this.clickLogin;
+    this.writeValidEmail();
+    this.clickNext();
+    this.writeValidPassword();
+    this.clickLogin();
   }
 
   public loginWithUnregisteredEmail(unregisteredEmail: string){
     this.writeWrongEmail(unregisteredEmail);
-    this.clickNext;
-    this.writeValidPassword;
-    this.clickLogin;
+    this.clickNext();
+    this.writeValidPassword();
+    this.clickLogin();
   }
 
   public loginWithInvalidEmail(invalidEmail: string){
@@ -75,10 +83,10 @@ export class LoginPage extends Page {
   }
 
   public loginWithWrongPassword(){
-    this.writeValidEmail;
-    this.clickNext;
+    this.writeValidEmail();
+    this.clickNext();
     this.writeWrongPassword("123");
-    this.clickLogin;
+    this.clickLogin();
   }
 
   public isEmailErrorMessageShown(){
